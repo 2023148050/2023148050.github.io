@@ -11,9 +11,7 @@ canvas.width = 500;
 canvas.height = 500;
 gl.enable(gl.SCISSOR_TEST)
 
-// Initialize WebGL settings: viewport and clear color
-gl.viewport(0, 0, canvas.width, canvas.height);
-gl.clearColor(0, 0, 1, 1.0);
+
 
 
 // Start rendering
@@ -21,7 +19,7 @@ render();
 
 // Render loop
 function render() {
-    const size = Math.min(window.innerWidth, window.innerHeight);
+    const size = Math.min(canvas.width, canvas.height);
     canvas.width = size;
     canvas.height = size;
     const halfWidth = size / 2;
@@ -55,6 +53,7 @@ function render() {
 
 // Resize viewport when window size changes
 window.addEventListener('resize', () => {
+    const size = Math.min(window.innerWidth, window.innerHeight);
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     gl.viewport(0, 0, canvas.width, canvas.height);
